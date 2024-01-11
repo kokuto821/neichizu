@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>leaflet-map-csv</title>
+  <title>leaflet-map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
@@ -36,8 +36,8 @@
 <script>
 // Set up initial map center and zoom level
 var map = L.map('map', {
-center: [35,139], // EDIT latitude, longitude to re-center map
-zoom: 5.5,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
+center: [35.68517004648027, 139.75280437863023], // EDIT latitude, longitude to re-center map
+zoom: 11.5,  // EDIT from 1 to 18 -- decrease to zoom out, increase to zoom in
 scrollWheelZoom: true,
 tap: true ,
 zoomControl: false,
@@ -58,34 +58,85 @@ var gsi =L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png',
 //地理院地図の淡色地図タイル
 var gsipale = L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png',
 {attribution: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院タイル</a>"});
+//地理院地図タイル年代
+var gsi1984to1986 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/gazo3/{z}/{x}/{y}.jpg',
+{attribution: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院タイル</a>"});
+//地理院地図タイル年代
+var gsi1984to1986 = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/gazo3/{z}/{x}/{y}.jpg',
+{attribution: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院タイル</a>"});
 //地理院地図航空写真のタイル  
 var gsikouku =L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg');    
 // see more basemap options at https://leaflet-extras.github.io/leaflet-providers/preview/
 var baseMaps = {
-    "オープンストリートマップ"  : osm,
+    "オープンストリートマップ": osm,
     "地理院地図": gsi,
+    "地理院淡色地図":gsipale,
     "GoogleMap": gmap,
     "空中写真": gsikouku,
+    "空中写真(1984-1987)": gsi1984to1986,
 };
+
+// レイヤーコントロールの作成と追加
+var layersControl = L.control.layers(baseMaps).addTo(map);
+// 地理院地図をデフォルトで地図に追加
+gsipale.addTo(map);
+
 map.attributionControl.setPrefix(
 '<span style="color:#3a5b52;">NatureMap'
 );
-L.control.layers(baseMaps).addTo(map);
-    gsi.addTo(map); 
 
-fetch('geodata/1984_NDVI-0095.geojson')
+
+fetch('geodata/1984_NDVI-0095_4326.geojson')
     .then((res) => res.json())
     .then((json) =>{
         //geojsonレイヤーを作成
         const polygon = L.geoJSON(json, {
             style:(feature) => ({
                 color: '#3e92d6',
-                stroke false,
+                opacity: 0.5 ,
             }),
         })
-        layersControl.addOverlay(polygon,'1984_NDVI-0095')
-    }
-    )
+            .bindPopup(
+                (layer) => '1984' ,
+            )
+            .addTo(map);
+
+        layersControl.addOverlay(polygon,'1984_NDVI-0.095');
+    });
+fetch('geodata/2001_NDVI-012_4326.geojson')
+    .then((res) => res.json())
+    .then((json) =>{
+        //geojsonレイヤーを作成
+        const polygon = L.geoJSON(json, {
+            style:(feature) => ({
+                color: '#ff7f50',
+                opacity: 0.5 ,
+            }),
+        })
+            .bindPopup(
+                (layer) => '2001' ,
+            )
+            .addTo(map);
+
+        layersControl.addOverlay(polygon,'2001_NDVI-0.12');
+    });
+fetch('geodata/2023_NDVI-0165_4326.geojson')
+    .then((res) => res.json())
+    .then((json) =>{
+        //geojsonレイヤーを作成
+        const polygon = L.geoJSON(json, {
+            style:(feature) => ({
+                color: '#2e8b57',
+                opacity: 0.5 ,
+            }),
+        })
+            .bindPopup(
+                (layer) => '2023' ,
+            )
+            .addTo(map);
+
+        layersControl.addOverlay(polygon,'2023_NDVI-0.165');
+    });
 
 </script>
 </body>

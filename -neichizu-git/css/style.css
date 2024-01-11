@@ -110,6 +110,11 @@ p {
   display: none;
 }
 
+.map-eyecatch_block {
+  height: auto;
+  width: 30vw;
+}
+
 .map_title {
   height: 5vh;
   background-color: rgb(142, 196, 158);
@@ -146,7 +151,7 @@ p {
   border: #2b2e2c;
   width: 100%;
   height: auto;
-  padding: 5% 10%;
+  padding: 2.5% 5%;
 }
 .content .white_back p {
   text-align: left;
@@ -157,7 +162,9 @@ p {
   justify-content: center;
 }
 .content .white_back .white_back_inner .white_back_inner_eyecatch {
-  margin: 5%;
+  margin: 2.5%;
+  overflow: hidden;
+  max-width: 30vw;
 }
 .content .white_back .white_back_inner .white_back_inner_eyecatch .white_inner_map-title {
   white-space: nowrap;
@@ -170,6 +177,17 @@ p {
 }
 .content .white_back .white_back_inner .white_back_inner_eyecatch .white_back_inner_info {
   padding: 0% 5% 0% 5%;
+}
+@media screen and (max-width: 680px) {
+  .content .white_back .white_back_inner .white_back_inner_eyecatch {
+    margin: 5%;
+    max-width: none;
+  }
+}
+@media screen and (max-width: 680px) {
+  .content .white_back {
+    padding: 5% 10%;
+  }
 }
 .content .link_url {
   color: rgb(60, 60, 183);
@@ -394,6 +412,7 @@ p {
   }
   .content .white_back .white_back_inner .white_back_inner_eyecatch img {
     width: 100%;
+    min-width: 259px;
   }
   .foot_nav {
     position: fixed;

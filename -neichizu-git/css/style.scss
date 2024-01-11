@@ -102,6 +102,10 @@ p{
 .sp-nav {
    display: none;
 }
+.map-eyecatch_block{
+   height: auto;
+   width: 30vw;
+}
 .map_title {
     height: 5vh;
     background-color: rgb(142, 196, 158);
@@ -135,7 +139,7 @@ p{
    border: #2b2e2c;
    width: 100%;
    height: auto;
-   padding: 5% 10%;
+   padding: 2.5% 5%;
    p{
       text-align: left;
       margin-bottom: 0px;
@@ -144,24 +148,37 @@ p{
       display: flex;
       justify-content: center;
       .white_back_inner_eyecatch{
-         margin: 5%;
+         margin: 2.5%;
+         overflow: hidden;
+         max-width: 30vw;
          .white_inner_map-title{
             white-space: nowrap;
             font-size: 1.5rem;
-            margin-bottom: 5px;
+            margin-bottom: 5px; 
          }
          img{
-            height:auto;width: 30vw;
+            height:auto;
+            width: 30vw;
          }
          .white_back_inner_info{
             padding: 0% 5% 0% 5%;
          }
       }
+      @media screen and (max-width: 680px) {
+         .white_back_inner_eyecatch{
+            margin: 5%;
+            max-width: none;
+         }
+      }
       
    }
-
-  
 }
+@media screen and (max-width: 680px) {
+   .white_back{
+      padding: 5% 10%;
+   }
+}
+
 .link_url{
    color: rgb(60, 60, 183);
    display: block;
@@ -393,6 +410,7 @@ margin-left: 25px;
             margin-bottom: 5%;
             img{
                width: 100%;
+               min-width: 259px;
             }
          }
       }
