@@ -9,7 +9,7 @@
 </div>
 
 <footer class="foot_nav">
-    <p class="foot_nav_p"><a class="foot_nav_link"  href="https://www.google.com/maps/d/viewer?mid=1OjXFg_mjG2QeZTXK1enyj0957jiP9Og&ll=40.215649114306935%2C141.54227165000003&z=6" target="_blank">Googlemapで見る</a></p>
+    <p class="foot_nav_p"><a class="foot_nav_link"  href="https://www.google.com/maps/d/viewer?mid=1OjXFg_mjG2QeZTXK1enyj0957jiP9Og&ll=38.66483464924118%2C140.62674284694677&z=7" target="_blank">Googlemapで見る</a></p>
 </footer>
 
 </div>
