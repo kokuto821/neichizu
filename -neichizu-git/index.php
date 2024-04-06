@@ -24,7 +24,6 @@
             <p><a class="link_url" href="https://geopark.jp/geopark/" target="_blank">参考になったサイト</a></p>
             </div>
         </div>
-        
     </div>
 </div>
 <div class="white_back">

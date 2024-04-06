@@ -5,7 +5,7 @@
 <div class="map_title"><h2 class="h2-title_text"><img class="map_title_img" src="img/mountain.png" width="30px" height="30px" ;>日本百名山</h2></div>
 
 <div class="map_wrap">
-<iframe src="hyakumeizan-map.html" class="mapflame" ></iframe>
+<iframe src="hyakumeizan-map.php" class="mapflame" ></iframe>
 </div>
 
 <footer class="foot_nav">

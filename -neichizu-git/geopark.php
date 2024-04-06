@@ -5,7 +5,7 @@
 <div class="map_title"><h2 class="h2-title_text">日本のジオパーク</h2></div>
 
 <div class="map_wrap">
-<iframe src="geopark.html" class="mapflame" ></iframe>
+<iframe src="geopark-map.php" class="mapflame" ></iframe>
 </div>
 
 <footer class="foot_nav">
